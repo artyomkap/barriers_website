@@ -5,6 +5,10 @@ import MainPage from './components/MainPage/MainPage';
 import Gallery from './components/Gallery/Gallery';
 import Contacts from './components/Contacts/Contacts';
 import Services from './components/Services/Services';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import Crm from './components/CRM/Crm';
+
 
 function App() {
   return (
@@ -15,6 +19,9 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contacts" element={<Contacts/>} />
         <Route path="/services" element={<Services/>} />
+        <Route path="/register" element={<Register />} />
+        <Route path='/login' element={<Login/>} />
+        <Route path="/crm" element={<Crm />} />
       </Routes>
       <Footer />
     </Router>

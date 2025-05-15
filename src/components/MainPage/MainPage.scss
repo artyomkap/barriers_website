@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: nowrap; // ❗️ запрещаем перенос
+    flex-wrap: nowrap;
   }
 
   .advantage {
@@ -61,7 +61,6 @@
     }
   }
 }
-
 
 .our-works {
   padding: 40px 20px;
@@ -102,7 +101,8 @@
     margin: 0 auto;
     gap: 15px;
 
-    input, textarea {
+    input,
+    textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -158,5 +158,76 @@
     &:hover {
       background-color: #000;
     }
+  }
+}
+
+// 📱 Адаптивность
+@media (max-width: 1024px) {
+  .main-banner img {
+    width: 70%;
+  }
+
+  .main-banner__title {
+    font-size: 2.5rem;
+    bottom: 25%;
+  }
+
+  .advantages__inner {
+    flex-wrap: wrap;
+  }
+
+  .our-works__gallery img {
+    width: calc(33.333% - 13px);
+  }
+
+  .about-company__image {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-banner img {
+    width: 100%;
+  }
+
+  .main-banner__title {
+    font-size: 2rem;
+    bottom: 30%;
+  }
+
+  .advantages__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .our-works__gallery img {
+    width: calc(50% - 10px);
+  }
+
+  .about-company__grid {
+    flex-direction: column;
+  }
+
+  .about-company__image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .consultation-form form {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-banner__title {
+    font-size: 1.5rem;
+  }
+
+  .our-works__gallery img {
+    width: 100%;
+  }
+
+  .advantages__inner {
+    gap: 15px;
   }
 }

@@ -1,4 +1,3 @@
-// Основные стили заголовков
 .contacts-title__container h1 {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-weight: 400;
@@ -41,7 +40,8 @@
       margin-bottom: 5px;
     }
 
-    &_number a {
+    &_number a,
+    &_mail a {
       font-weight: 700;
       font-size: 16px;
       color: #000;
@@ -51,29 +51,21 @@
       &::before {
         content: '';
         display: inline-block;
-        background-image: url('../../images/icons/phone-blue.svg');
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
       }
     }
 
-    &_mail a {
-      font-weight: 700;
-      font-size: 16px;
-      color: #000;
-      text-decoration: underline;
-      display: inline-flex;
-      align-items: center;
+    &_number a::before {
+      background-image: url('../../images/icons/phone-blue.svg');
+    }
 
-      &::before {
-        content: '';
-        display: inline-block;
-        background-image: url('../../images/icons/mail-blue.svg');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
+    &_mail a::before {
+      background-image: url('../../images/icons/mail-blue.svg');
     }
 
     &_address {
@@ -85,6 +77,9 @@
 
         &::before {
           content: '';
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
           background-image: url('../../images/icons/pin_red.png');
           background-size: contain;
           background-position: center;
@@ -103,6 +98,9 @@
 
     &::before {
       content: '';
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -179,12 +177,13 @@
     flex-direction: column;
     gap: 10px;
 
-    input, textarea {
+    input,
+    textarea {
       font-size: 14px;
       padding: 10px;
       border-radius: 4px;
       border: none;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       font-weight: 600;
     }
 
@@ -197,6 +196,7 @@
   &__wrap {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   &__btn {
@@ -212,12 +212,58 @@
 
 .contacts-title__column_big {
   display: flex;
-  flex-direction: row; // горизонтальное направление
+  flex-direction: row;
   gap: 20px;
 
   .contacts-title__item {
     flex: 1 1 0;
-    margin-bottom: 0; // убрать вертикальный отступ
+    margin-bottom: 0;
   }
 }
 
+// 📱 Адаптивность
+
+@media (max-width: 1024px) {
+  .contacts-title__column {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .contacts-form__container {
+    flex-direction: column;
+  }
+
+  .contacts-form__requisites,
+  .contacts-form__body {
+    flex: 1 1 100%;
+  }
+
+  .contacts-title__column_big {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacts-title__column {
+    flex: 1 1 100%;
+  }
+
+  .contacts-title__item_number a::before,
+  .contacts-title__item_mail a::before,
+  .contacts-title__item_address div::before {
+    width: 16px;
+    height: 16px;
+  }
+
+  .contacts-title__container h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .contacts-form__head h2 {
+    font-size: 20px;
+  }
+
+  .contacts-form__head p {
+    font-size: 14px;
+  }
+}

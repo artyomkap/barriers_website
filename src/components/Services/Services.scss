@@ -2,14 +2,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-}
 
-.services__container h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  }
 }
 
 .service-details {
@@ -60,4 +60,45 @@
   }
 }
 
-/* Удалено поведение в два ряда на десктопе */
+// 📱 Адаптивность
+@media (max-width: 768px) {
+  .services__container h1 {
+    font-size: 1.8rem;
+  }
+
+  .service-details__content h2 {
+    font-size: 1.4rem;
+  }
+
+  .service-details__content p,
+  .service-details__content li {
+    font-size: 0.95rem;
+  }
+
+  .service-details__image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services__container {
+    padding: 30px 15px;
+  }
+
+  .services__container h1 {
+    font-size: 1.5rem;
+  }
+
+  .service-details__content h2 {
+    font-size: 1.2rem;
+  }
+
+  .service-details__content p,
+  .service-details__content li {
+    font-size: 0.9rem;
+  }
+
+  .service-details__image {
+    max-height: 250px;
+  }
+}

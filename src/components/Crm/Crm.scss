@@ -1,0 +1,148 @@
+.crm-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .crm-block {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #333;
+    }
+  }
+
+  .error {
+    color: red;
+    text-align: center;
+  }
+
+  .crm-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    button {
+      margin-right: 0.5rem;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      padding: 0.4rem 0.6rem;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+.crm-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  input,
+  select,
+  textarea {
+    flex: 1 1 200px;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+// ✅ Адаптивность
+@media (max-width: 768px) {
+  .crm-container {
+    padding: 1rem;
+  }
+
+  .crm-form {
+    flex-direction: column;
+
+    input,
+    select,
+    textarea,
+    button {
+      width: 100%;
+    }
+  }
+
+  .crm-table {
+    font-size: 14px;
+
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .crm-container {
+    margin: 20px 10px;
+  }
+
+  .crm-table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .crm-block {
+    padding: 1rem;
+  }
+
+  .crm-form {
+    gap: 0.75rem;
+
+    button {
+      font-size: 15px;
+    }
+  }
+}

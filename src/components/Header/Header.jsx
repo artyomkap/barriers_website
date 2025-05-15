@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.scss';
 import logo from '../../images/logo.png';
-        import { Link } from 'react-router-dom'; // Путь к вашему логотипу
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext.jsx';
 
 function Header() {
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <header className="header">
       <div className="header__left">
         <img src={logo} alt="Логотип" className="header__logo" />
         <nav className="header__nav">
-            <Link to="/">Главная страница</Link>
-            <Link to="/contacts">Контакты</Link>
-            <Link to="/services">Услуги</Link>
-            <Link to="/gallery">Галерея</Link>
+          <Link to="/">Главная страница</Link>
+          <Link to="/contacts">Контакты</Link>
+          <Link to="/services">Услуги</Link>
+          <Link to="/gallery">Галерея</Link>
+          {user && <Link to="/crm">CRM</Link>}
         </nav>
       </div>
+
       <div className="header__auth">
-        <a href="/login" className="header__auth-link">Логин</a>
-        <a href="/register" className="header__auth-link">Регистрация</a>
+        {!user ? (
+          <>
+            <Link to="/login" className="header__auth-link">Логин</Link>
+            <Link to="/register" className="header__auth-link">Регистрация</Link>
+          </>
+        ) : (
+          <>
+            <span className="header__auth-name">{user.nickname}</span>
+            <button onClick={handleLogout} className="header__auth-link">Выйти</button>
+          </>
+        )}
       </div>
     </header>
   );

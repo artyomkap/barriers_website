@@ -5,32 +5,45 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   &__left {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   &__logo {
-    height: 80px;
-    margin-right: 24px;
+    height: 60px;
+    margin-right: 16px;
   }
 
-  &__nav a {
-    margin-right: 16px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.2s;
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
 
-    &:hover {
-      color: #007bff;
+    a {
+      margin-right: 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #007bff;
+      }
     }
   }
 
   &__auth {
     display: flex;
     gap: 12px;
+    margin-top: 10px;
+
+    @media (min-width: 600px) {
+      margin-top: 0;
+    }
   }
 
   &__auth-link {
@@ -45,6 +58,40 @@
     &:hover {
       background-color: #007bff;
       color: #fff;
+    }
+  }
+
+  &__auth-name {
+    font-weight: 500;
+    align-self: center;
+  }
+
+  // Медиа-запросы для телефонов
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__left {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__logo {
+      margin-bottom: 8px;
+    }
+
+    &__nav {
+      flex-direction: column;
+
+      a {
+        margin: 4px 0;
+      }
+    }
+
+    &__auth {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
   }
 }
