@@ -4,8 +4,6 @@ import API from '../../api.jsx';
 import './Register.scss';
 
 
-
-
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
 
 
